@@ -3,7 +3,7 @@ amp_analysis.py
 ---------------
 Reusable toolkit for AMP analog design and docking result analysis.
 Based on: "Selectivity and Virulence Modulation of Antimicrobial Peptides
-to Enhance Pathogenic Targeting" (Samudra & Tiwari)
+to Enhance Pathogenic Targeting" (AAAS 2025)
 
 Three modules:
   1. Analog Screener     — calculates hydrophobicity % and charge for any peptide
@@ -135,7 +135,7 @@ def calculate_charge(sequence: str, amidated: bool = False) -> float:
     # Amidated C-terminus: no negative contribution (C-term replaced by -NH2)
     # Calibration offset: Prot Pi includes an additional terminal correction
     # of approximately -1.0 relative to residue-sum alone. Derived by comparison
-    # to all 9 BMAP-27 analog values reported in Samudra & Tiwari (Table 1).
+    # to all 9 BMAP-27 analog values found in original research.
     charge -= 1.0
     return round(charge, 3)
 
@@ -150,7 +150,7 @@ def screen_analog(
     """
     Screens a single peptide analog against design thresholds from the paper.
 
-    Thresholds established in Samudra & Tiwari:
+    Thresholds established in original research:
         hydrophobicity <= 38%   (upper bound for bacterial selectivity)
         charge         >= +10   (lower bound for potency)
 
@@ -297,7 +297,7 @@ def score_selectivity(
 if __name__ == '__main__':
 
     print("=" * 65)
-    print("AMP ANALOG ANALYSIS — BMAP-27 (Samudra & Tiwari)")
+    print("AMP ANALOG ANALYSIS — BMAP-27")
     print("=" * 65)
 
     # 1. Screen all BMAP-27 analogs from paper
